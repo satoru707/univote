@@ -1,7 +1,8 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Vote, LogOut, User } from 'lucide-react';
-import { useAuth } from '../../context/AuthContext';
+import React from "react";
+import ivoteeIcon from "./ivotee PNG.png";
+import { Link, useNavigate } from "react-router-dom";
+import { Vote, LogOut, User } from "lucide-react";
+import { useAuth } from "../../context/AuthContext";
 
 const Header: React.FC = () => {
   const { user, logout, isAuthenticated, isAdmin } = useAuth();
@@ -9,16 +10,19 @@ const Header: React.FC = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate("/");
   };
 
   return (
     <header className="bg-white shadow-sm border-b border-neutral-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <Vote className="h-8 w-8 text-primary-600" />
-            <span className="text-xl font-bold text-neutral-900">UniVote</span>
+            <img
+              src={ivoteeIcon}
+              className="h-40 w-40 text-primary-600"
+              alt="project icon"
+            />
           </Link>
 
           {isAuthenticated && (
