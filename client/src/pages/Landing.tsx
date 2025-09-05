@@ -13,7 +13,7 @@ const Landing: React.FC = () => {
           <div className="text-center">
             <img
               src={ivoteeImg}
-              className="mx-auto mb-0 projectImg"
+              className="mx-auto mb-0 mt-0 projectImg"
               alt="project logo"
             />
 
