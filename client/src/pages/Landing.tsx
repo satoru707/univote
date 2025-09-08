@@ -22,10 +22,23 @@ const Landing: React.FC = () => {
             </h1>
 
             <p className="text-xl text-neutral-600 mb-8 max-w-2xl mx-auto px-4">
-              Smart, Secure, Student-powered. iVotee makes university elections
-              transparent and trustworthy- giving every smart student the
-              confidence to vote digitally
+              ivotee makes university elections transparent and trustworthy
+              giving every smart student the confidence to vote digitally
             </p>
+            <div className="flex flex-row text-neutral-700 max-w-7xl mx-auto row-span-3 pb-16 justify-center items-center">
+              <div className="descriptionIcon">
+                <CheckCircle className="h-10 icons" />
+                Smart
+              </div>
+              <div className="descriptionIcon">
+                <Shield className="h-10 icons" />
+                Secured
+              </div>
+              <div className="descriptionIcon">
+                <Vote className="h-10 icons" />
+                Student-Powered
+              </div>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
