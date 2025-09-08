@@ -11,7 +11,6 @@ import StudentDashboard from "./pages/student/Dashboard";
 import ElectionDetails from "./pages/student/ElectionDetails";
 import VoteConfirmation from "./pages/student/VoteConfirmation";
 import Results from "./pages/student/Results";
-import AdminLogin from "./pages/admin/Login";
 import AdminDashboard from "./pages/admin/Dashboard";
 
 function App() {

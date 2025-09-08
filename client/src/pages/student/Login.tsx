@@ -68,7 +68,7 @@ const StudentLogin: React.FC = () => {
         <div className="max-w-md w-full">
           <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-8">
             <div className="text-center mb-8">
-              <h1 className="text-2xl font-bold text-neutral-900 mb-2">Student Login</h1>
+              <h1 className="text-2xl font-bold text-neutral-900 mb-2">Login</h1>
               <p className="text-neutral-600">
                 Enter your matric number to receive a verification link
               </p>

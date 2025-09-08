@@ -48,6 +48,14 @@
     background-color: #010080;
     width: 100%;
 }
+.descriptionIcon {
+    width: 25%;
+}
+.icons {
+    margin-left: 5.5rem;
+    color: #010080;
+
+}
 }
 
 @media screen and (min-width: 769px) {
@@ -67,5 +75,39 @@
 .loginBtn {
     background-color: #010080;
     width: 100%;
+}
+.descriptionIcon {
+    width: 25%;
+}
+.icons {
+    margin-left: 7.5rem;
+    color: #010080;
+}
+}
+
+@media screen and (min-width: 1025px) {
+    .projectImg {
+    width: 34.5%;
+    height: 300px;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.projectName {
+    margin-top: 0%;
+    font-size: 5rem;
+    line-height: 90%;
+    color: #010080;
+}
+.loginBtn {
+    background-color: #010080;
+    width: 100%;
+}
+.descriptionIcon {
+    width: 10%;
+}
+.icons {
+    margin-left: 3.25rem;
+    color: #010080;
 }
 }
