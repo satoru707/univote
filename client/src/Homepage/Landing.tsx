@@ -1,10 +1,9 @@
-import React from "react";
 import ivoteeImg from "./ivotee-icon-png.png";
-import { Link } from "react-router-dom";
-import { Vote, Shield, Users, CheckCircle } from "lucide-react";
+import { Link } from "react-router";
+import { Vote, Shield, CheckCircle } from "lucide-react";
 import Layout from "../components/common/Layout";
 
-const Landing: React.FC = () => {
+const Landing = () => {
   return (
     <Layout>
       <div className="fullLayout min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 mb-8">

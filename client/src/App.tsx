@@ -1,80 +1,32 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
-import { ElectionProvider } from "./context/ElectionContext";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Toast from "./components/common/Toast";
-
-import Landing from "./pages/Landing";
-import StudentLogin from "./pages/student/Login";
-import Verify from "./pages/student/Verify";
-import StudentDashboard from "./pages/student/Dashboard";
-import ElectionDetails from "./pages/student/ElectionDetails";
-import VoteConfirmation from "./pages/student/VoteConfirmation";
-import Results from "./pages/student/Results";
-import AdminDashboard from "./pages/admin/Dashboard";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
+import Landing from "./Homepage/Landing";
+import StudentLogin from "./Homepage/student/Login";
+import Verify from "./Homepage/student/Verify";
+import StudentDashboard from "./Homepage/student/Dashboard";
+import ElectionDetails from "./Homepage/student/ElectionDetails";
+import VoteConfirmation from "./Homepage/student/VoteConfirmation";
+import Results from "./Homepage/student/Results";
+import AdminDashboard from "./Homepage/admin/ElectionModal";
 
 function App() {
   return (
-    <AuthProvider>
-      <ElectionProvider>
-        <Router>
-          <div className="App">
-            <Toast />
-            <Routes>
-              {/* Public Routes */}
-              <Route path="/" element={<Landing />} />
-              <Route path="/student/login" element={<StudentLogin />} />
-              <Route path="/verify" element={<Verify />} />
-              <Route path="/admin/login" element={<AdminLogin />} />
+    <Router>
+      <div className="App">
+        <Routes>
+          {/* LANDING PAGE */}
+          <Route path="/" element={<Landing />} />
 
-              {/* Student Protected Routes */}
-              <Route
-                path="/dashboard"
-                element={
-                  // <ProtectedRoute studentOnly>
-                  <StudentDashboard />
-                  // </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/elections/:id"
-                element={
-                  // <ProtectedRoute studentOnly>
-                  <ElectionDetails />
-                  // </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/elections/:id/results"
-                element={
-                  // <ProtectedRoute>
-                  <Results />
-                  // </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/vote-confirmation"
-                element={
-                  // <ProtectedRoute studentOnly>
-                  <VoteConfirmation />
-                  // </ProtectedRoute>
-                }
-              />
-
-              {/* Admin Protected Routes */}
-              <Route
-                path="/admin/dashboard"
-                element={
-                  // <ProtectedRoute adminOnly>
-                  <AdminDashboard />
-                  // </ProtectedRoute>
-                }
-              />
-            </Routes>
-          </div>
-        </Router>
-      </ElectionProvider>
-    </AuthProvider>
+          {/* OTHER ROUTES */}
+          <Route path="/student/login" element={<StudentLogin />} />
+          <Route path="/verify" element={<Verify />} />
+          <Route path="/dashboard" element={<StudentDashboard />} />
+          <Route path="/elections" element={<ElectionDetails />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/vote-confirmation" element={<VoteConfirmation />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

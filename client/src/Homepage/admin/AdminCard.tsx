@@ -1,24 +1,24 @@
-import React from 'react';
-import { LucideIcon } from 'lucide-react';
+import React from "react";
+import type { LucideIcon } from "lucide-react";
 
 interface AdminCardProps {
   title: string;
   value: string | number;
   icon: LucideIcon;
-  color?: 'primary' | 'secondary' | 'success' | 'warning';
+  color?: "primary" | "secondary" | "success" | "warning";
 }
 
-const AdminCard: React.FC<AdminCardProps> = ({ 
-  title, 
-  value, 
-  icon: Icon, 
-  color = 'primary' 
+const AdminCard: React.FC<AdminCardProps> = ({
+  title,
+  value,
+  icon: Icon,
+  color = "primary",
 }) => {
   const colorClasses = {
-    primary: 'bg-primary-50 text-primary-600',
-    secondary: 'bg-secondary-50 text-secondary-600',
-    success: 'bg-success-50 text-success-600',
-    warning: 'bg-warning-50 text-warning-600'
+    primary: "bg-primary-50 text-primary-600",
+    secondary: "bg-secondary-50 text-secondary-600",
+    success: "bg-success-50 text-success-600",
+    warning: "bg-warning-50 text-warning-600",
   };
 
   return (

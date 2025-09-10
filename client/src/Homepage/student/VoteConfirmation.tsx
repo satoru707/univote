@@ -1,32 +1,18 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { CheckCircle, Download, FileText } from 'lucide-react';
-import Layout from '../../components/common/Layout';
-import { generateReceiptCode } from '../../utils/helpers';
+import React from "react";
+import { CheckCircle, Download } from "lucide-react";
+import Layout from "../../components/common/Layout";
 
 const VoteConfirmation: React.FC = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  
-  const { electionTitle, candidateName, receiptHash, timestamp } = location.state || {};
-
-  if (!receiptHash) {
-    navigate('/dashboard');
-    return null;
-  }
-
-  const receiptCode = generateReceiptCode(receiptHash);
-
   const downloadReceipt = () => {
     const receiptContent = `
 UNIVERSITY E-VOTING RECEIPT
 ==========================
 
-Election: ${electionTitle}
-Candidate: ${candidateName}
-Timestamp: ${new Date(timestamp).toLocaleString()}
-Receipt Code: ${receiptCode}
-Full Hash: ${receiptHash}
+Election: Student Union President
+Candidate: John Doe
+Timestamp: ${new Date().toLocaleString()}
+Receipt Code: ######
+Full Hash: here is your hash
 
 This receipt confirms your vote was successfully recorded.
 Results will be visible after the election closes.
@@ -34,11 +20,10 @@ Results will be visible after the election closes.
 UniVote - University E-Voting System
     `.trim();
 
-    const blob = new Blob([receiptContent], { type: 'text/plain' });
+    const blob = new Blob([receiptContent], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
-    a.download = `vote-receipt-${receiptCode}.txt`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -61,23 +46,31 @@ UniVote - University E-Voting System
             </h1>
 
             <div className="bg-neutral-50 rounded-lg p-4 mb-6 text-left">
-              <h3 className="font-semibold text-neutral-900 mb-3">Vote Summary</h3>
+              <h3 className="font-semibold text-neutral-900 mb-3">
+                Vote Summary
+              </h3>
               <div className="space-y-2 text-sm">
                 <div>
                   <span className="text-neutral-600">Election:</span>
-                  <p className="font-medium text-neutral-900">{electionTitle}</p>
+                  <p className="font-medium text-neutral-900">
+                    Student Union President
+                  </p>
                 </div>
                 <div>
                   <span className="text-neutral-600">Candidate:</span>
-                  <p className="font-medium text-neutral-900">{candidateName}</p>
+                  <p className="font-medium text-neutral-900">John Doe</p>
                 </div>
                 <div>
                   <span className="text-neutral-600">Timestamp:</span>
-                  <p className="font-medium text-neutral-900">{new Date(timestamp).toLocaleString()}</p>
+                  <p className="font-medium text-neutral-900">
+                    {new Date().toLocaleString()}
+                  </p>
                 </div>
                 <div>
                   <span className="text-neutral-600">Receipt Code:</span>
-                  <p className="font-mono font-bold text-primary-600 text-lg">{receiptCode}</p>
+                  <p className="font-mono font-bold text-primary-600 text-lg">
+                    ###########
+                  </p>
                 </div>
               </div>
             </div>
@@ -96,7 +89,7 @@ UniVote - University E-Voting System
               </button>
 
               <button
-                onClick={() => navigate('/dashboard')}
+                onClick={() => "/dashboard"}
                 className="w-full bg-primary-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200"
               >
                 Back to Dashboard
